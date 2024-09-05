@@ -5,74 +5,100 @@ using namespace std; // I hate typing std:: before everything
 
 bool userGuess(int maxRange);
 int promptUserForMaxRange();
+int pickRanNumInRange(int minRange, int maxRange);
+bool userPlayAgain();
+int promptUserForGuess(int maxRange);
+void welcomeMsg();
+void playOneRound();
 
 int main() {
+    int minRange = 0;
 
-    int maxRange = promptUserForMaxRange();
-    cout << "Max range: " << maxRange << endl;
+    bool playAgain = true;
+    // while (playAgain) {
+    //     int maxRange = promptUserForMaxRange();
+    //     int mysteryNumber = pickRanNumInRange(minRange, maxRange);
+    //     int userGuess = promptUserForGuess(maxRange);
+    //     playAgain = userPlayAgain();
+    // }
+    playOneRound();
+}
 
-    while (userGuess(maxRange)) {
-        char response;
+void playOneRound() {
+    welcomeMsg();
 
-        cout << "Do you want to play again? (y/n)" << endl;
-        cin >> response;
-        // TODO: Add input validation, only Y and N should be accepted
-        if (response == 'n') {
-            cout << "\nThank you for playing! Goodbye!" << endl;
-            return 0;
+    int guessCount = 0;
+    bool correct = false;
+
+    while (!correct) {
+        int maxRange = promptUserForMaxRange();
+        int mysteryNumber = pickRanNumInRange(0, maxRange);
+        int userGuess = promptUserForGuess(maxRange);
+
+        if (userGuess < mysteryNumber) {
+            cout << "Too low!" << endl;
+        } else if (userGuess > mysteryNumber) {
+            cout << "Too high!" << endl;
         } else {
-            cout << "Great! Let's play again!\n" << endl;
+            correct = true;
         }
+
+        guessCount++;
     }
+
+    std::cout << "Correct, it took you " << guessCount << " guesses!" << std::endl;
 }
 
 int promptUserForMaxRange() {
     int maxRange = 0;
-    cout << "Enter the maximum range for the mystery number: " << endl;
-    try {
+    bool validInput = false;
+
+    while (!validInput) {
+        cout << "Enter the maximum range for the mystery number: ";
         cin >> maxRange;
-        if (maxRange < 0) {
-            throw invalid_argument("The maximum range must be a positive integer.");
+
+        if (cin.fail()) {
+            cin.clear(); // Clear the error flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore the rest of the input buffe
+            cout << "Invalid input. Please enter a positive integer." << endl;
+        } else if (maxRange < 0) {
+            cout << "The maximum range must be a positive integer." << endl;
+        } else {
+            validInput = true;
         }
-    } catch (invalid_argument &e) {
-        cout << e.what() << endl;
     }
 
     return maxRange;
 }
 
-bool userGuess(int maxRange) {
-    cout << "*** Welcome to the Myster Number Game!" << endl;
-    cout << "Guess a number between 0 and " << maxRange << endl;
+int pickRanNumInRange(int minRange, int maxRange) {
+    return rand() % (maxRange - minRange) + minRange;
+}
 
-    // TODO: Let user choose the range of numbers
+int promptUserForGuess(int maxRange) {
     int userGuess = 0;
-    int mysteryNumber = 0;
-    int numGuesses = 0;
+    cout << "Enter your guess: " << endl;
+    cin >> userGuess;
 
-    // Generate a random number between -1 and 10
-    mysteryNumber = rand() % 10;
-    cout << "The mystery number is: " << mysteryNumber << endl;
+    return userGuess;
+}
 
-    while (userGuess != mysteryNumber) {
+bool userPlayAgain() {
+    char response;
+    cout << "Do you want to play again? (y/n)" << endl;
+    cin >> response;
 
-        while (!(cin >> userGuess)) {
-            cin.clear(); // This clears the error flag
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // This discards the input buffer
-            cout << "\nInvalid input. Please enter an integer between 0 and 10: " << std::endl;
+    try {
+        if (response != 'y' || response != 'n') {
+            throw invalid_argument("Invalid input. Please enter 'y' or 'n'.");
         }
-
-        if (userGuess < mysteryNumber) {
-            cout << "\nYour guess is too low. Try again!" << endl;
-        } else if (userGuess > mysteryNumber) {
-            cout << "\nYour guess is too high. Try again!" << endl;
-        }
-
-        numGuesses++;
+    } catch (invalid_argument &e) {
+        cout << e.what() << endl;
     }
 
-    cout << "Congratulations! You guessed the mystery number!\n" << endl;
-    cout << "It took you " << numGuesses << " guesses to find the mystery number." << std::endl;
+    return response == 'y';
+}
 
-    return true;
+void welcomeMsg() {
+    cout << "Welcome to the Number Guessing Game!" << endl;
 }
