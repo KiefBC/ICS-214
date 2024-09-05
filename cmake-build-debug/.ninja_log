@@ -1,0 +1,13 @@
+# ninja log v6
+2	133	1725548993237410314	CMakeFiles/c_stuff.dir/main.cpp.o.ddi	d25357177852a57f
+133	140	1725548993374396560	CMakeFiles/c_stuff.dir/CXX.dd	1415a72eb275ff8b
+133	140	1725548993374396560	/home/kiefer/Programming/ICS/214/c-stuff/cmake-build-debug/CMakeFiles/c_stuff.dir/CXXModules.json	1415a72eb275ff8b
+133	140	1725548993374396560	CMakeFiles/c_stuff.dir/main.cpp.o.modmap	1415a72eb275ff8b
+140	649	1725548993375396460	CMakeFiles/c_stuff.dir/main.cpp.o	ae8250a4015c33ba
+650	754	1725548993885345257	c_stuff	9f239f0801cc54e2
+3	142	1725549662583911711	CMakeFiles/c_stuff.dir/main.cpp.o.ddi	d25357177852a57f
+142	149	1725549662722910804	CMakeFiles/c_stuff.dir/CXX.dd	1415a72eb275ff8b
+142	149	1725549662722910804	/home/kiefer/Programming/ICS/214/c-stuff/cmake-build-debug/CMakeFiles/c_stuff.dir/CXXModules.json	1415a72eb275ff8b
+142	149	1725549662722910804	CMakeFiles/c_stuff.dir/main.cpp.o.modmap	1415a72eb275ff8b
+149	751	1725549662730910751	CMakeFiles/c_stuff.dir/main.cpp.o	ae8250a4015c33ba
+751	828	1725549663331906828	c_stuff	9f239f0801cc54e2

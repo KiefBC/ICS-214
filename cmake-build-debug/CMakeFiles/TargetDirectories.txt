@@ -1,0 +1,3 @@
+/home/kiefer/Programming/ICS/214/c-stuff/cmake-build-debug/CMakeFiles/c_stuff.dir
+/home/kiefer/Programming/ICS/214/c-stuff/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/kiefer/Programming/ICS/214/c-stuff/cmake-build-debug/CMakeFiles/rebuild_cache.dir
