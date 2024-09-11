@@ -23,7 +23,7 @@ int main() {
 
 // This will be the main function that will run the game
 void playOneRound() {
-    const int minRange = 0; // Placeholder for now
+    constexpr int minRange = 0; // Placeholder for now
     welcomeMsg();
 
     int guessCount = 0;
@@ -32,9 +32,7 @@ void playOneRound() {
     const int mysteryNumber = pickRanNumInRange(minRange, maxRange);
 
     while (!correct) {
-        int userGuess = promptUserForGuess(minRange, maxRange);
-
-        if (userGuess < mysteryNumber) {
+        if (int userGuess = promptUserForGuess(minRange, maxRange); userGuess < mysteryNumber) {
             cout << "Too low!\n" << endl;
         } else if (userGuess > mysteryNumber) {
             cout << "Too high!\n" << endl;

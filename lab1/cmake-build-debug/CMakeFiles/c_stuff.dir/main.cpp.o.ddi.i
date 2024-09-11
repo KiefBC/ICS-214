@@ -86887,7 +86887,7 @@ int main() {
 
 
 void playOneRound() {
-    const int minRange = 0;
+    constexpr int minRange = 0;
     welcomeMsg();
 
     int guessCount = 0;
@@ -86896,9 +86896,7 @@ void playOneRound() {
     const int mysteryNumber = pickRanNumInRange(minRange, maxRange);
 
     while (!correct) {
-        int userGuess = promptUserForGuess(minRange, maxRange);
-
-        if (userGuess < mysteryNumber) {
+        if (int userGuess = promptUserForGuess(minRange, maxRange); userGuess < mysteryNumber) {
             cout << "Too low!\n" << endl;
         } else if (userGuess > mysteryNumber) {
             cout << "Too high!\n" << endl;
