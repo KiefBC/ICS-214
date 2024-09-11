@@ -5,8 +5,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-using namespace std; // I hate typing std:: before everything
-
 bool userGuess(int maxRange);
 
 int promptUserForMaxRange();

@@ -5,6 +5,8 @@
 #include <chrono> // For our timer
 #include "main.h" // For our function prototypes
 
+using namespace std; // I hate typing std:: before everything
+
 int main() {
     // Start your engines.... I mean, the game
     const auto start = chrono::high_resolution_clock::now();
@@ -109,7 +111,8 @@ bool userPlayAgain() {
         cin >> response;
 
         if (tolower(response) == 'y') {
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
+
+
             cout << endl;
             return true;
         }
