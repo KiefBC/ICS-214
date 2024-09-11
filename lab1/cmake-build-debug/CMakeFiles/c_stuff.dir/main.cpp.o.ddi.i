@@ -86896,7 +86896,7 @@ void playOneRound() {
     const int mysteryNumber = pickRanNumInRange(minRange, maxRange);
 
     while (!correct) {
-        if (int userGuess = promptUserForGuess(minRange, maxRange); userGuess < mysteryNumber) {
+        if (const int userGuess = promptUserForGuess(minRange, maxRange); userGuess < mysteryNumber) {
             cout << "Too low!\n" << endl;
         } else if (userGuess > mysteryNumber) {
             cout << "Too high!\n" << endl;
@@ -86972,16 +86972,17 @@ bool userPlayAgain() {
         cout << "Do you want to play again? (y/n): ";
         cin >> response;
 
-        if (response == 'y') {
+        if (tolower(response) == 'y') {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << endl;
             return true;
-        } else if (response == 'n') {
+        }
+        if (tolower(response) == 'n') {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             return false;
-        } else {
-            cout << "Invalid input. Please enter 'y' or 'n'.\n" << endl;
         }
+
+        cout << "Invalid input. Please enter 'y' or 'n'.\n" << endl;
     }
 }
 
