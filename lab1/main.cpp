@@ -1,35 +1,29 @@
 #include <iostream>
 #include <limits> // For numeric_limits
-
-using namespace std; // I hate typing std:: before everything
-
-bool userGuess(int maxRange);
-
-int promptUserForMaxRange();
-
-int pickRanNumInRange(int minRange, int maxRange);
-
-bool userPlayAgain();
-
-int promptUserForGuess(int minRange, int maxRange);
-
-void welcomeMsg();
-
-void playOneRound();
-
-void goodbyeMsg();
+#include <sstream> // For stringstream
+#include <string> // For strings
+#include <chrono> // For our timer
+#include "main.h" // For our function prototypes
 
 int main() {
+    // Start your engines.... I mean, the game
+    const auto start = chrono::high_resolution_clock::now();
+
     bool playAgain = true;
     while (playAgain) {
         playOneRound();
         playAgain = userPlayAgain();
     }
+
+    // Calculate the time it took you to play the game
+    const auto end = chrono::high_resolution_clock::now();
+    const auto duration = chrono::duration_cast<chrono::seconds>(end - start).count();
+    goodbyeMsg(duration);
 }
 
 // This will be the main function that will run the game
 void playOneRound() {
-    constexpr int minRange = 0; // Placeholder for now
+    const int minRange = 0; // Placeholder for now
     welcomeMsg();
 
     int guessCount = 0;
@@ -56,24 +50,28 @@ void playOneRound() {
 
 // This function will prompt the user for the maximum range
 int promptUserForMaxRange() {
-    int maxRange;
+    string userInput;
+    int maxRange = 0;
+
     while (true) {
         cout << "Enter the Maximum Range: ";
-        cin >> maxRange;
+        getline(cin, userInput); // Take input as a string
 
-        // Can't assign a string to an int
-        if (cin.fail()) {
-            cin.clear(); // Clear the error flag
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard the buffer
-            cout << "Invalid input. Please enter a number." << endl;
+        // Convert the input string to an integer
+        if (stringstream ss(userInput); ss >> maxRange && ss.eof()) {
+            if (maxRange < 0) {
+                cout << "Please enter a positive number.\n" << endl;
+            } else {
+                return maxRange;
+            }
         } else {
-            return maxRange;
+            cout << "Invalid input. Please enter a valid number.\n" << endl;
         }
     }
 }
 
 // This function will generate a random number within the range
-int pickRanNumInRange(int minRange, int maxRange) {
+int pickRanNumInRange(const int minRange, const int maxRange) {
     srand(time(0)); // LSP gives me errors about this not being "random" enough
 
     const int mysteryNumber = minRange + rand() % (maxRange - minRange + 1);
@@ -84,20 +82,22 @@ int pickRanNumInRange(int minRange, int maxRange) {
 
 // This function will prompt the user for their guess
 int promptUserForGuess(const int minRange, const int maxRange) {
+    string input;
     int userGuess = 0;
 
     while (true) {
         cout << "Enter your guess between " << minRange << " and " << maxRange << ": ";
-        cin >> userGuess;
+        getline(cin, input); // Take input as a string
 
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input. Please enter a valid integer.\n" << endl;
-        } else if (userGuess < minRange || userGuess > maxRange) {
-            cout << "Please enter a number between " << minRange << " and " << maxRange << ".\n";
+        // Convert the input string to an integer
+        if (stringstream ss(input); ss >> userGuess && ss.eof()) {
+            if (userGuess < minRange || userGuess > maxRange) {
+                cout << "Please enter a number between " << minRange << " and " << maxRange << ".\n";
+            } else {
+                return userGuess;
+            }
         } else {
-            return userGuess;
+            cout << "Invalid input. Please enter a valid integer.\n" << endl;
         }
     }
 }
@@ -110,33 +110,31 @@ bool userPlayAgain() {
         cout << "Do you want to play again? (y/n): ";
         cin >> response;
 
-        if (response == 'y' || response == 'n') {
-            break;
+        if (response == 'y') {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
+            cout << endl;
+            return true;
+        } else if (response == 'n') {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
+            return false;
+        } else {
+            cout << "Invalid input. Please enter 'y' or 'n'.\n" << endl;
         }
-
-        cout << "Invalid input. Please enter 'y' for yes or 'n' for no.\n" << endl;
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     }
-
-    if (response == 'y') {
-        cout << "Great! Let's play again!\n" << endl;
-        return true;
-    }
-
-    // Print out goodbye message
-    goodbyeMsg();
-    return false;
 }
 
 // This function will display the welcome message
 void welcomeMsg() {
-    cout << " Welcome to the Number Guessing Game!" << endl; // Leading space was intended
     cout << "*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*" << endl;
+    cout << " Welcome to the Number Guessing Game!" << endl; // Leading whitespace intended
+    cout << "  Written by Kiefer Hay, 09/11/2024" << endl; // Leading whitespace intended
+    cout << "*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*\n" << endl;
 }
 
 // This function will display the goodbye message
-void goodbyeMsg() {
-    cout << "\n Goodbye!" << endl;
-    cout << "*=*=*=*=*=*" << endl;
+void goodbyeMsg(const long duration) {
+    cout << "\n*=*=*=*=*=*=*=*=*=*=*=*" << endl;
+    cout << "       Goodbye!" << endl; // Leading whitespace intended
+    cout << "You played for " << duration << " seconds." << endl; // Leading whitespace intended
+    cout << "*=*=*=*=*=*=*=*=*=*=*=*" << endl;
 }
