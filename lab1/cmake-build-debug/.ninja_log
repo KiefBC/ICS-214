@@ -1,13 +1,13 @@
 # ninja log v6
-2	133	1725548993237410314	CMakeFiles/c_stuff.dir/main.cpp.o.ddi	d25357177852a57f
-133	140	1725548993374396560	CMakeFiles/c_stuff.dir/CXX.dd	1415a72eb275ff8b
-133	140	1725548993374396560	/home/kiefer/Programming/ICS/214/c-stuff/cmake-build-debug/CMakeFiles/c_stuff.dir/CXXModules.json	1415a72eb275ff8b
-133	140	1725548993374396560	CMakeFiles/c_stuff.dir/main.cpp.o.modmap	1415a72eb275ff8b
-140	649	1725548993375396460	CMakeFiles/c_stuff.dir/main.cpp.o	ae8250a4015c33ba
-650	754	1725548993885345257	c_stuff	9f239f0801cc54e2
-3	142	1725549662583911711	CMakeFiles/c_stuff.dir/main.cpp.o.ddi	d25357177852a57f
-142	149	1725549662722910804	CMakeFiles/c_stuff.dir/CXX.dd	1415a72eb275ff8b
-142	149	1725549662722910804	/home/kiefer/Programming/ICS/214/c-stuff/cmake-build-debug/CMakeFiles/c_stuff.dir/CXXModules.json	1415a72eb275ff8b
-142	149	1725549662722910804	CMakeFiles/c_stuff.dir/main.cpp.o.modmap	1415a72eb275ff8b
-149	751	1725549662730910751	CMakeFiles/c_stuff.dir/main.cpp.o	ae8250a4015c33ba
-751	828	1725549663331906828	c_stuff	9f239f0801cc54e2
+2	118	1726067875381421121	CMakeFiles/c_stuff.dir/main.cpp.o.ddi	c8da84c7d104e4ee
+118	125	1726067875497420197	CMakeFiles/c_stuff.dir/CXX.dd	1415a72eb275ff8b
+118	125	1726067875497420197	CMakeFiles/c_stuff.dir/main.cpp.o.modmap	1415a72eb275ff8b
+126	832	1726067875505420133	CMakeFiles/c_stuff.dir/main.cpp.o	e9f2d8e7585ba6fd
+833	938	1726067876212414498	c_stuff	9f239f0801cc54e2
+118	125	1726067875497420197	/home/kiefer/Programming/ICS/214/c-stuff/lab1/cmake-build-debug/CMakeFiles/c_stuff.dir/CXXModules.json	1415a72eb275ff8b
+2	117	1726068763181550219	CMakeFiles/c_stuff.dir/main.cpp.o.ddi	c8da84c7d104e4ee
+117	122	1726068763296549235	CMakeFiles/c_stuff.dir/CXX.dd	1415a72eb275ff8b
+117	122	1726068763296549235	/home/kiefer/Programming/ICS/214/c-stuff/lab1/cmake-build-debug/CMakeFiles/c_stuff.dir/CXXModules.json	1415a72eb275ff8b
+117	122	1726068763296549235	CMakeFiles/c_stuff.dir/main.cpp.o.modmap	1415a72eb275ff8b
+122	865	1726068763301549193	CMakeFiles/c_stuff.dir/main.cpp.o	e9f2d8e7585ba6fd
+865	972	1726068764044542838	c_stuff	9f239f0801cc54e2

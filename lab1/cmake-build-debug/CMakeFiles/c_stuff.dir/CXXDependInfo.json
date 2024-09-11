@@ -5,14 +5,14 @@
 	"compiler-simulate-id" : "",
 	"config" : "Debug",
 	"cxx-modules" : {},
-	"dir-cur-bld" : "/home/kiefer/Programming/ICS/214/c-stuff/cmake-build-debug",
-	"dir-cur-src" : "/home/kiefer/Programming/ICS/214/c-stuff",
-	"dir-top-bld" : "/home/kiefer/Programming/ICS/214/c-stuff/cmake-build-debug",
-	"dir-top-src" : "/home/kiefer/Programming/ICS/214/c-stuff",
+	"dir-cur-bld" : "/home/kiefer/Programming/ICS/214/c-stuff/lab1/cmake-build-debug",
+	"dir-cur-src" : "/home/kiefer/Programming/ICS/214/c-stuff/lab1",
+	"dir-top-bld" : "/home/kiefer/Programming/ICS/214/c-stuff/lab1/cmake-build-debug",
+	"dir-top-src" : "/home/kiefer/Programming/ICS/214/c-stuff/lab1",
 	"exports" : [],
 	"forward-modules-from-target-dirs" : [],
 	"include-dirs" : [],
 	"language" : "CXX",
 	"linked-target-dirs" : [],
-	"module-dir" : "/home/kiefer/Programming/ICS/214/c-stuff/cmake-build-debug/CMakeFiles/c_stuff.dir"
+	"module-dir" : "/home/kiefer/Programming/ICS/214/c-stuff/lab1/cmake-build-debug/CMakeFiles/c_stuff.dir"
 }
