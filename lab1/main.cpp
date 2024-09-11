@@ -1,7 +1,7 @@
 #include <iostream>
 #include <limits> // For numeric_limits
-#include <sstream> // For stringstream
-#include <string> // For strings
+#include <sstream> // For converting input Str -> int
+#include <string> // For String
 #include <chrono> // For our timer
 #include "main.h" // For our function prototypes
 

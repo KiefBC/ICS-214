@@ -29,3 +29,9 @@
 202	209	1726073331989170785	CMakeFiles/c_stuff.dir/main.cpp.o.modmap	1415a72eb275ff8b
 209	2077	1726073331996170727	CMakeFiles/c_stuff.dir/main.cpp.o	e9f2d8e7585ba6fd
 2077	2177	1726073333864155297	c_stuff	9f239f0801cc54e2
+1	77	1726076093930152846	CMakeFiles/c_stuff.dir/main.cpp.o.ddi	c8da84c7d104e4ee
+77	80	1726076094006157035	CMakeFiles/c_stuff.dir/CXX.dd	1415a72eb275ff8b
+77	80	1726076094006157035	/home/kiefer/Programming/ICS/214/c-stuff/lab1/cmake-build-debug/CMakeFiles/c_stuff.dir/CXXModules.json	1415a72eb275ff8b
+77	80	1726076094006157035	CMakeFiles/c_stuff.dir/main.cpp.o.modmap	1415a72eb275ff8b
+80	722	1726076094009157200	CMakeFiles/c_stuff.dir/main.cpp.o	e9f2d8e7585ba6fd
+722	767	1726076094651192585	c_stuff	9f239f0801cc54e2
